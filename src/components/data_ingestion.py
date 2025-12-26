@@ -1,7 +1,9 @@
 import os
 import sys
-from src.exception import CustomException
-from src.logger import logging
+#from src.exception import CustomException
+#from src.logger import logging
+from src.pipelines.exception import CustomException
+from src.pipelines.logger import logging
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
@@ -25,7 +27,8 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component")
         try:
-            df=pd.read_csv('notebook\data\stud.csv')
+            df=pd.read_csv('data\stud.csv')
+           
             logging.info('Read the dataset as dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
